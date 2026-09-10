@@ -1,16 +1,123 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Automated Deployment</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(135deg, #0f172a, #1e293b, #312e81);
+            color: white;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 650px;
+            padding: 50px 40px;
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+
+            backdrop-filter: blur(15px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .icon {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        h1 span {
+            color: #818cf8;
+        }
+
+        p {
+            color: #cbd5e1;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 12px 22px;
+            border-radius: 50px;
+
+            background: rgba(34, 197, 94, 0.15);
+            color: #86efac;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 12px #22c55e;
+        }
+
+        .footer {
+            margin-top: 35px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Hello from GitHub Actions!</h1>
+    <div class="container">
 
-    <p>This application is deployed automatically.</p>
+        <div class="icon">🚀</div>
+
+        <h1>Hello from <span>GitHub Actions!</span></h1>
+
+        <p>
+            This application was deployed automatically using
+            <strong>CI/CD automation</strong>.
+        </p>
+
+        <div class="status">
+            <span class="dot"></span>
+            Deployment Successful
+        </div>
+
+        <div class="footer">
+            Built with HTML • Deployed with GitHub Actions
+        </div>
+
+    </div>
 
 </body>
 
 </html>
+```
