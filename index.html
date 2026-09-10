@@ -6,7 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Automated Deployment</title>
+    <title>Automated Deployment ✨</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap"
+        rel="stylesheet">
 
     <style>
         * {
@@ -17,105 +23,384 @@
 
         body {
             min-height: 100vh;
+            font-family: "DM Sans", sans-serif;
+            color: #352b3d;
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 10% 20%, #ffd6e8 0, transparent 28%),
+                radial-gradient(circle at 90% 10%, #d8d6ff 0, transparent 30%),
+                radial-gradient(circle at 80% 90%, #c8f7e8 0, transparent 30%),
+                #fff8fc;
+
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: Arial, sans-serif;
-
-            background: linear-gradient(135deg, #0f172a, #1e293b, #312e81);
-            color: white;
         }
 
-        .container {
-            width: 90%;
-            max-width: 650px;
-            padding: 50px 40px;
+        /* Floating Background Blobs */
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(2px);
+            opacity: 0.7;
+            animation: float 7s ease-in-out infinite;
+        }
+
+        .blob.one {
+            width: 180px;
+            height: 180px;
+            background: #ffb7d5;
+            top: 8%;
+            left: 8%;
+        }
+
+        .blob.two {
+            width: 130px;
+            height: 130px;
+            background: #bcb8ff;
+            bottom: 12%;
+            right: 10%;
+            animation-delay: 1.5s;
+        }
+
+        .blob.three {
+            width: 80px;
+            height: 80px;
+            background: #a9ead8;
+            top: 65%;
+            left: 18%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(8deg);
+            }
+        }
+
+        /* Main Card */
+
+        .card {
+            position: relative;
+            z-index: 2;
+
+            width: min(90%, 720px);
+            padding: 55px 50px;
+
             text-align: center;
 
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.58);
+            border: 1px solid rgba(255, 255, 255, 0.8);
 
-            backdrop-filter: blur(15px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+
+            border-radius: 35px;
+
+            box-shadow:
+                0 30px 80px rgba(91, 62, 100, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+            animation: appear 0.8s ease;
         }
 
-        .icon {
-            font-size: 55px;
-            margin-bottom: 20px;
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.96);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Cute Icon */
+
+        .rocket {
+            width: 90px;
+            height: 90px;
+
+            margin: 0 auto 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 42px;
+
+            background: linear-gradient(135deg, #ffe0ed, #e4e1ff);
+
+            border-radius: 28px;
+
+            box-shadow:
+                0 15px 30px rgba(180, 130, 180, 0.18);
+
+            animation: rocket 3s ease-in-out infinite;
+        }
+
+        @keyframes rocket {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-3deg);
+            }
+
+            50% {
+                transform: translateY(-8px) rotate(3deg);
+            }
+        }
+
+        /* Heading */
+
+        .small-title {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #9b7ba8;
+            margin-bottom: 12px;
         }
 
         h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
+            font-size: clamp(34px, 6vw, 55px);
+            line-height: 1.1;
+            margin-bottom: 18px;
+            letter-spacing: -2px;
         }
 
         h1 span {
-            color: #818cf8;
+            background: linear-gradient(90deg, #e875a9, #8c82e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        p {
-            color: #cbd5e1;
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 30px;
+        .description {
+            max-width: 520px;
+            margin: auto;
+
+            font-size: 17px;
+            line-height: 1.7;
+
+            color: #756b7d;
         }
+
+        /* Status */
 
         .status {
-            display: inline-flex;
+            margin: 32px auto 0;
+
+            width: fit-content;
+
+            display: flex;
             align-items: center;
             gap: 10px;
 
-            padding: 12px 22px;
-            border-radius: 50px;
+            padding: 12px 20px;
 
-            background: rgba(34, 197, 94, 0.15);
-            color: #86efac;
-            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 100px;
 
-            font-size: 15px;
-            font-weight: bold;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(210, 190, 210, 0.5);
+
+            color: #4e8b70;
+            font-weight: 700;
+            font-size: 14px;
+
+            box-shadow: 0 8px 20px rgba(100, 70, 100, 0.08);
         }
 
         .dot {
-            width: 10px;
-            height: 10px;
+            width: 11px;
+            height: 11px;
+
             border-radius: 50%;
-            background: #22c55e;
-            box-shadow: 0 0 12px #22c55e;
+
+            background: #59c99a;
+
+            box-shadow:
+                0 0 0 5px rgba(89, 201, 154, 0.15),
+                0 0 18px rgba(89, 201, 154, 0.8);
+
+            animation: pulse 2s infinite;
         }
 
-        .footer {
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 0 0 5px rgba(89, 201, 154, 0.15),
+                    0 0 18px rgba(89, 201, 154, 0.8);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 0 9px rgba(89, 201, 154, 0.05),
+                    0 0 25px rgba(89, 201, 154, 0.5);
+            }
+        }
+
+        /* Info Cards */
+
+        .features {
             margin-top: 35px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .feature {
+            padding: 16px 10px;
+
+            background: rgba(255, 255, 255, 0.55);
+            border-radius: 18px;
+
+            border: 1px solid rgba(255, 255, 255, 0.8);
+
+            transition: 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 12px 25px rgba(100, 70, 100, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 21px;
+            margin-bottom: 7px;
+        }
+
+        .feature strong {
+            display: block;
             font-size: 13px;
-            color: #94a3b8;
+        }
+
+        .feature small {
+            color: #968b9d;
+            font-size: 11px;
+        }
+
+        /* Footer */
+
+        .footer {
+            margin-top: 28px;
+            color: #a298a9;
+            font-size: 12px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            body {
+                overflow: auto;
+                padding: 25px 0;
+            }
+
+            .card {
+                padding: 40px 22px;
+                border-radius: 28px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                letter-spacing: -1px;
+            }
+
+            .description {
+                font-size: 15px;
+            }
+
+            .blob {
+                opacity: 0.4;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+    <!-- Background -->
 
-        <div class="icon">🚀</div>
+    <div class="blob one"></div>
+    <div class="blob two"></div>
+    <div class="blob three"></div>
 
-        <h1>Hello from <span>GitHub Actions!</span></h1>
 
-        <p>
-            This application was deployed automatically using
-            <strong>CI/CD automation</strong>.
+    <!-- Main Content -->
+
+    <main class="card">
+
+        <div class="rocket">
+            🚀
+        </div>
+
+        <div class="small-title">
+            Automated Deployment
+        </div>
+
+        <h1>
+            Hello from <span>GitHub Actions!</span>
+        </h1>
+
+        <p class="description">
+            Your code went from repository to live website automatically.
+            No manual deployment. Just push, relax, and let the automation do its thing. ✨
         </p>
+
+
+        <!-- Deployment Status -->
 
         <div class="status">
             <span class="dot"></span>
             Deployment Successful
         </div>
 
-        <div class="footer">
-            Built with HTML • Deployed with GitHub Actions
+
+        <!-- Feature Cards -->
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <strong>Automated</strong>
+                <small>Push → Deploy</small>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🔄</div>
+                <strong>Continuous</strong>
+                <small>Always updated</small>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">💗</div>
+                <strong>All Good</strong>
+                <small>System online</small>
+            </div>
+
         </div>
 
-    </div>
+        <div class="footer">
+            Built with HTML & CSS · Powered by GitHub Actions
+        </div>
+
+    </main>
 
 </body>
 
